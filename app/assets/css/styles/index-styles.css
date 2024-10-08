@@ -1,0 +1,17 @@
+.ssmrlogo{
+    width: 3.5rem;
+}
+
+.sidebar{
+    height: 100vh;
+}
+
+.sidebar-icons{
+    width: 1.5rem;
+}
+
+.op-room_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
