@@ -8,7 +8,9 @@ if ($_POST) {
     $Username = $_POST['usuario'];
     $Password = $_POST['password'];
 
-    $sqlLogin = "SELECT userID, userName, userPassword, userRoleID FROM users JOIN roles ON users.userRoleID = roles.rolesID WHERE userName = '$Username'";
+    $sqlLogin = "SELECT userID, userName, userPassword, userRoleID 
+    FROM users JOIN roles ON users.userRoleID = roles.rolesID 
+    WHERE userName = '$Username'";
 
     $Results = $dbConnection->query($sqlLogin);
     $numResults = $Results->num_rows;
@@ -38,7 +40,7 @@ if ($_POST) {
             $_SESSION['msg'] = " Contraseña Incorrecta! Por favor, intente nuevamente";
             $_SESSION['icon'] = "fa-solid fa-circle-exclamation";
         }
-    }else {
+    } else {
         $_SESSION['color'] = "danger";
         $_SESSION['msg'] = "Usuario No Encontrado!";
         $_SESSION['icon'] = "fa-solid fa-circle-xmark";
@@ -96,7 +98,7 @@ if ($_POST) {
                                                 <label class="form-check-label" for="flexCheckDefault">Mostrar Contraseña</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
-                                                <button class="btn btn-primary" type="submit"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</button>
+                                                <button class="btn btn-primary" type="submit" id="liveToastBtn"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</button>
                                             </div>
                                         </form>
                                     </div>
@@ -116,9 +118,7 @@ if ($_POST) {
 
     <script src="../../app//assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/dbdf95c22b.js" crossorigin="anonymous"></script>
-    <script>
-        history.replaceState(null, null, location.pathname)
-    </script>
+    <script>history.replaceState(null, null, location.pathname)</script>
 </body>
 
 </html>

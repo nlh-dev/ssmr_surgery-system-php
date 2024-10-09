@@ -47,7 +47,9 @@ require '../config/dbConnection.php';
                 </a>
             </ul>
             <hr>
-            <button type="button" class="btn btn-primary"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</button>
+            <a href="Logout.php" class="btn btn-primary">
+                <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+            </a>
         </div>
 
         <div class="container p-4">
