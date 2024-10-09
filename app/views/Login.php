@@ -30,8 +30,6 @@ if ($_POST) {
 
             if ($userRow_['userRoleID'] == 2) {
                 header("Location: User_Index.php");
-            } elseif ($userRow_['userRoleID'] == 3) {
-                header("Location: SurgeryUser_Index.php");
             } else {
                 header("Location: Index.php");
             }
@@ -118,6 +116,7 @@ if ($_POST) {
 
     <script src="../../app//assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/dbdf95c22b.js" crossorigin="anonymous"></script>
+    <script src="../../app/assets/js/functions/showLoginPassword.js"></script>
     <script>history.replaceState(null, null, location.pathname)</script>
 </body>
 
