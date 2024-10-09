@@ -1,6 +1,17 @@
+<!--SQL CONECTION AND INJECTION-->
+
 <?php
 
 require '../config/dbConnection.php';
+
+$sqlDoctors = "SELECT * FROM doctors";
+$Doctors = $dbConnection->query($sqlDoctors);
+
+$sqlPatientState = "SELECT * FROM patient_states";
+$PatientState = $dbConnection->query($sqlPatientState);
+
+$sqlSurgery = "SELECT * FROM surgery_type";
+$Surgery = $dbConnection->query($sqlSurgery);
 
 ?>
 
@@ -12,7 +23,7 @@ require '../config/dbConnection.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../app/assets/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="../../app/assets/css/styles/index-styles.css">
-    <title>Quirófano | Lista de Médicos</title>
+    <title>Quirófano | Usuarios</title>
 </head>
 
 <body>
@@ -32,7 +43,7 @@ require '../config/dbConnection.php';
                     </a>
                 </li>
                 <li>
-                    <a href="DoctorList.php" class="nav-link active text-white">
+                    <a href="DoctorList.php" class="nav-link text-white">
                         <i class="sidebar-icons fa-solid fa-user-doctor"></i>Médicos
                     </a>
                 </li>
@@ -42,56 +53,24 @@ require '../config/dbConnection.php';
                     </a>
                 </li>
                 <hr>
-                <a href="Users.php" class="nav-link text-white">
-                    <i class="fa-solid fa-users"></i> Usuarios
+                <a href="Users.php" class="nav-link active text-white">
+                    <i class="fa-solid fa-users"></i>Usuarios
                 </a>
             </ul>
             <hr>
             <button type="button" class="btn btn-primary"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</button>
         </div>
-
-        <div class="container p-4">
-            <div class="mb-3">
-                <h2><i class="sidebar-icons fa-solid fa-user-doctor"></i> Lista de Médicos</h2>
-                <hr>
-            </div>
-            <!-- PHP IMPORTS -->
-            <?php include './DoctorTable.php'?>
-            <?php include './AddMedsModal.php'?>
-            <?php include './EditMedsModal.php'?>
-            <?php include './DeleteMedsModal.php'?>
-        </div>
     </div>
 
-    <script>
-        let editMedsModal = document.getElementById('editMedsModal')
+    <!-- PHP IMPORTS -->
 
-        editMedsModal.addEventListener('shown.bs.modal', event =>{
 
-            let button = event.relatedTarget
-            let id = button.getAttribute('data-bs-id')
-
-            let inputID = editMedsModal.querySelector('.modal-body #id');
-            let inputMedName = editMedsModal.querySelector('.modal-body #medName');
-
-            let url = "getMeds.php"
-            let formData = new FormData()
-            formData.append('medID', id)
-
-            fetch(url,{
-                method: "POST",
-                body: formData
-            }).then(response => response.json())
-            .then(data => {
-                inputID.value = data.medID,
-                inputMedName.value = data.medFullName
-            }).catch(err => console.log(err))
-        })
-    </script>
 
     <script src="../../app//assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/dbdf95c22b.js" crossorigin="anonymous"></script>
-    <script>history.replaceState(null, null, location.pathname)</script>
+    <script>
+        history.replaceState(null, null, location.pathname)
+    </script>
 </body>
 
 </html>
