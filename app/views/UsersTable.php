@@ -32,8 +32,8 @@ $Users = $dbConnection->query($sqlUsers);
                         <?= $row_users["rolesName"] ?>
                     </td>
                     <td class="d-flex justify-content-evenly">
-                        <a href="#" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editMedsModal" data-bs-id="<?= $row_users["userID"] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMedsModal" data-bs-id="<?= $row_users["userID"] ?>"><i class="fa-solid fa-trash-can"></i></a>
+                        <a href="#" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editUsersModal" data-bs-id="<?= $row_users["userID"] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteUsersModal" data-bs-id="<?= $row_users["userID"] ?>"><i class="fa-solid fa-trash-can"></i></a>
                     </td>
                 </tr>
             <?php } ?>

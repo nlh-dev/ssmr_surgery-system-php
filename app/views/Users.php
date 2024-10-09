@@ -1,8 +1,12 @@
 <!--SQL CONECTION AND INJECTION-->
-
 <?php
 
 require '../config/dbConnection.php';
+session_start();
+
+if (!isset($_SESSION['userID'])) {
+    header("Location: Login.php");
+}
 
 $sqlUsers = "SELECT * FROM users";
 $Users = $dbConnection->query($sqlUsers);
@@ -69,16 +73,16 @@ $Roles = $dbConnection->query($slqRoles);
 
     </div>
             <!-- PHP IMPORTS -->
-             <?php include './AddUsersModal.php'; ?>
+            <?php include './AddUsersModal.php'; ?>
+            <?php include './EditUsersModal.php'; ?>
+            <?php include './DeleteUsersModal.php'; ?>
             
 
 
 
     <script src="../../app//assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/dbdf95c22b.js" crossorigin="anonymous"></script>
-    <script>
-        history.replaceState(null, null, location.pathname)
-    </script>
+    <script>history.replaceState(null, null, location.pathname)</script>
 </body>
 
 </html>

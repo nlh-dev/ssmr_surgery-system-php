@@ -7,7 +7,7 @@ $Surgery = $dbConnection->query($sqlSurgery);
 
 <div class="table_container mt-3">
         <div class="d-flex justify-content-end align-items-center">
-            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSpecialiyModal"><i class="sidebar-icons fa-solid fa-suitcase-medical"></i> Añadir Cirugía</button>
+            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSpecialityModal"><i class="sidebar-icons fa-solid fa-suitcase-medical"></i> Añadir Cirugía</button>
         </div>
     <table class="table table-striped table-hover mt-3">
         <thead class="table-dark text-center">

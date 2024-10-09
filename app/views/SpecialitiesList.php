@@ -75,7 +75,12 @@ $Surgery = $dbConnection->query($sqlSurgery);
             <?php include './EditSpecialityModal.php'; ?>
 
         <script>
+            let addSpecialityModal =document.getElementById('addSpecialityModal')
             let editSpecialityModal = document.getElementById('editSpecialityModal')
+
+            addSpecialityModal.addEventListener('hide.bs.modal', event => {
+                let inputSpeName =addSpecialityModal.querySelector('.modal-body #speName').value = ""
+            })
 
             editSpecialityModal.addEventListener('shown.bs.modal', event => {
                 
@@ -98,6 +103,13 @@ $Surgery = $dbConnection->query($sqlSurgery);
                     inputSpeName.value = data.surgeryName
                 }).catch(err => console.log(err))
             })
+
+            editSpecialityModal.addEventListener('hide.bs.modal', event => {
+                
+                let inputSpeName =editSpecialityModal.querySelector('.modal-body #speName').value = ""
+                
+            })
+
         </script>
 
 

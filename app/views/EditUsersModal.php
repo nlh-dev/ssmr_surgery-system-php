@@ -1,15 +1,16 @@
 <!-- Modal para Añadir Pacientes -->
-<div class="modal fade" id="addUsersModal" tabindex="-1" aria-labelledby="addUsersModalLabel" aria-hidden="true">
+<div class="modal fade" id="editUsersModal" tabindex="-1" aria-labelledby="editUsersModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header bg-dark">
-                <h1 class="modal-title fs-5 text-white" id="addUsersModal">
+                <h1 class="modal-title fs-5 text-white" id="editUsersModal">
                     <img src="../../app/assets/images/SSMR_LOGO-1.png" class="ssmrlogo" alt="ssmr-logo-1">
-                    Agregar Usuario
+                    Editar Usuario
                 </h1>
             </div>
             <div class="modal-body">
                 <form action="SaveUsers.php" method="POST">
+                    <input type="hidden" name="id" id="id">
                     <div class="mb-3">
                         <strong for="">Nombre de Usuario</strong>
                         <input type="text" name="user" id="user" class="form-control" required>

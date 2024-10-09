@@ -2,6 +2,12 @@
 <?php
 
 require '../config/dbConnection.php';
+session_start();
+
+if (!isset($_SESSION['userID'])) {
+    header("Location: Login.php");
+}
+
 
 $sqlDoctors = "SELECT * FROM doctors";
 $Doctors = $dbConnection->query($sqlDoctors);
@@ -57,7 +63,9 @@ $Surgery = $dbConnection->query($sqlSurgery);
                 </a>
             </ul>
             <hr>
-            <button type="button" class="btn btn-primary"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</button>
+            <a href="Logout.php" class="btn btn-primary">
+                <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+            </a>
         </div>
 
         <div class="container p-4">
@@ -82,8 +90,26 @@ $Surgery = $dbConnection->query($sqlSurgery);
     </div>
 
     <script>
+        let AddPatientsModal =document.getElementById('addPatientsModal')
         let editPatientsModal = document.getElementById('editPatientsModal')
         let deletePatientsModal =document.getElementById('deletePatientsModal')
+
+        AddPatientsModal.addEventListener('hide.bs.modal', event => {
+            
+            let inputPatient = AddPatientsModal.querySelector('.modal-body #patient').value = ""
+
+        })
+        
+        editPatientsModal.addEventListener('hide.bs.modal', event => {
+            
+            let inputPatient = editPatientsModal.querySelector('.modal-body #patient').value = ""
+            let inputDoctor = editPatientsModal.querySelector('.modal-body #doctors').value = ""
+            let inputSurgery = editPatientsModal.querySelector('.modal-body #surgery').value = ""
+            let inputState = editPatientsModal.querySelector('.modal-body #state').value = ""
+
+        })
+
+        
 
         editPatientsModal.addEventListener('shown.bs.modal', event => {
 
@@ -117,7 +143,7 @@ $Surgery = $dbConnection->query($sqlSurgery);
             let button = event.relatedTarget
             let id = button.getAttribute('data-bs-id')
 
-            deletePatientsModal.querySelector('.modal-footer #id').value =id
+            deletePatientsModal.querySelector('.modal-footer #id').value = id
         })
 
         
