@@ -62,7 +62,7 @@ $Surgery = $dbConnection->query($sqlSurgery);
 
         <div class="container p-4">
             <div class="mb-3">
-                <h2><i class="fa-solid fa-hospital-user"></i> Lista de Pacientes</h2>
+                <h2><i class="fa-solid fa-hospital-user mx-2"></i>Lista de Pacientes</h2>
                 <hr>
             </div>
         
@@ -78,10 +78,12 @@ $Surgery = $dbConnection->query($sqlSurgery);
             $Surgery->data_seek(0);
         ?>
         <?php include './EditPatientsModal.php'; ?>
+        <?php include './DeletePatientsModal.php'; ?>
     </div>
 
     <script>
         let editPatientsModal = document.getElementById('editPatientsModal')
+        let deletePatientsModal =document.getElementById('deletePatientsModal')
 
         editPatientsModal.addEventListener('shown.bs.modal', event => {
 
@@ -110,6 +112,15 @@ $Surgery = $dbConnection->query($sqlSurgery);
                     inputState.value = data.patientsStateID
                 }).catch(err => console.log(err))
         })
+
+        deletePatientsModal.addEventListener('shown.bs.modal', event =>{
+            let button = event.relatedTarget
+            let id = button.getAttribute('data-bs-id')
+
+            deletePatientsModal.querySelector('.modal-footer #id').value =id
+        })
+
+        
     </script>
 
     <script src="../../app//assets/js/bootstrap/bootstrap.bundle.min.js"></script>

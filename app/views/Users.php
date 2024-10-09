@@ -4,14 +4,11 @@
 
 require '../config/dbConnection.php';
 
-$sqlDoctors = "SELECT * FROM doctors";
-$Doctors = $dbConnection->query($sqlDoctors);
+$sqlUsers = "SELECT * FROM users";
+$Users = $dbConnection->query($sqlUsers);
 
-$sqlPatientState = "SELECT * FROM patient_states";
-$PatientState = $dbConnection->query($sqlPatientState);
-
-$sqlSurgery = "SELECT * FROM surgery_type";
-$Surgery = $dbConnection->query($sqlSurgery);
+$slqRoles = "SELECT * FROM roles";
+$Roles = $dbConnection->query($slqRoles);
 
 ?>
 
@@ -60,9 +57,20 @@ $Surgery = $dbConnection->query($sqlSurgery);
             <hr>
             <button type="button" class="btn btn-primary"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</button>
         </div>
-    </div>
 
-    <!-- PHP IMPORTS -->
+        <div class="container p-4">
+            <div class="mb-3">
+                <h2><i class="sidebar-icons fa-solid fa-users mx-2"></i> Lista de Usuarios</h2>
+                <hr>
+            </div>
+            <!-- PHP USERS TABLE IMPORT -->
+                <?php include './UsersTable.php'?>
+        </div>
+
+    </div>
+            <!-- PHP IMPORTS -->
+             <?php include './AddUsersModal.php'; ?>
+            
 
 
 

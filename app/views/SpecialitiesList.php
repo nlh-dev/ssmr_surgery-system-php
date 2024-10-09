@@ -61,8 +61,44 @@ $Surgery = $dbConnection->query($sqlSurgery);
             <button type="button" class="btn btn-primary"><i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión</button>
         </div>
 
-        <!-- PHP IMPORTS -->
+        <div class="container p-4">
+            <div class="mb-3">
+                <h2><i class="sidebar-icons fa-solid fa-suitcase-medical mx-2"></i> Lista de Intervenciones</h2>
+                <hr>
+            </div>
+        <!-- PHP SPECIALITY TABLE IMPORTS -->
+            <?php include './SpecialityTable.php' ?>
+        </div>
 
+        <!-- PHP IMPORTS -->
+            <?php include './AddSpecialityModal.php'; ?>
+            <?php include './EditSpecialityModal.php'; ?>
+
+        <script>
+            let editSpecialityModal = document.getElementById('editSpecialityModal')
+
+            editSpecialityModal.addEventListener('shown.bs.modal', event => {
+                
+                let button = event.relatedTarget
+                let id = button.getAttribute('data-bs-id')
+
+                let inputID =editSpecialityModal.querySelector('.modal-body #id')
+                let inputSpeName =editSpecialityModal.querySelector('.modal-body #speName')
+
+                let url = "getSpecialities.php"
+                let formData = new FormData()
+                formData.append('surgeryID', id)
+
+                fetch(url,{
+                    method: "POST",
+                    body:formData
+                }).then(response => response.json())
+                .then(data => {
+                    inputID.value = data.surgeryID,
+                    inputSpeName.value = data.surgeryName
+                }).catch(err => console.log(err))
+            })
+        </script>
 
 
         <script src="../../app//assets/js/bootstrap/bootstrap.bundle.min.js"></script>

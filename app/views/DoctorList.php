@@ -52,7 +52,7 @@ require '../config/dbConnection.php';
 
         <div class="container p-4">
             <div class="mb-3">
-                <h2><i class="sidebar-icons fa-solid fa-user-doctor"></i> Lista de Médicos</h2>
+                <h2><i class="sidebar-icons fa-solid fa-user-doctor mx-2"></i>Lista de Médicos</h2>
                 <hr>
             </div>
             <!-- PHP IMPORTS -->
@@ -65,7 +65,8 @@ require '../config/dbConnection.php';
 
     <script>
         let editMedsModal = document.getElementById('editMedsModal')
-
+        let deleteMedsModal =document.getElementById('deleteMedsModal')
+        
         editMedsModal.addEventListener('shown.bs.modal', event =>{
 
             let button = event.relatedTarget
@@ -86,6 +87,15 @@ require '../config/dbConnection.php';
                 inputID.value = data.medID,
                 inputMedName.value = data.medFullName
             }).catch(err => console.log(err))
+        })
+
+        
+        deleteMedsModal.addEventListener('shown.bs.modal', even =>{
+            let button = event.relatedTarget
+            let id = button.getAttribute('data-bs-id')
+
+            deleteMedsModal.querySelector('.modal-footer #id').value = id
+            
         })
     </script>
 

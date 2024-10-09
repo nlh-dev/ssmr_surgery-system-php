@@ -42,7 +42,7 @@ $PatietnsTable = $dbConnection->query($sqlPatientsTable);
                     </td>
                     <td>
                         <a href="#" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editPatientsModal" data-bs-id="<?= $row_patients['patientsID']?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="#" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deletePatientsModal" data-bs-id="<?= $row_patients['patientsID']?>"><i class="fa-solid fa-trash-can"></i></a>
                     </td>
                 </tr>
             <?php } ?>

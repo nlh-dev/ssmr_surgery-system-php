@@ -24,7 +24,7 @@ $Doctors = $dbConnection->query($sqlDoctors);
                     </td>
                     <td class="d-flex justify-content-evenly">
                         <a href="#" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editMedsModal" data-bs-id="<?= $row_doctors["medID"] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMedsModal"><i class="fa-solid fa-trash-can"></i></a>
+                        <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMedsModal" data-bs-id="<?= $row_doctors["medID"] ?>"><i class="fa-solid fa-trash-can"></i></a>
                     </td>
                 </tr>
             <?php } ?>
