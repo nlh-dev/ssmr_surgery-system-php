@@ -9,7 +9,7 @@
                 </h1>
             </div>
             <div class="modal-body">
-                <form action="SaveUsers.php" method="POST">
+                <form action="UpdateUsers.php" method="POST">
                     <input type="hidden" name="id" id="id">
                     <div class="mb-3">
                         <strong for="">Nombre de Usuario</strong>

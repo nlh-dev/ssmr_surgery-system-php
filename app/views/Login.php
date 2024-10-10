@@ -30,6 +30,9 @@ if ($_POST) {
 
             if ($userRow_['userRoleID'] == 2) {
                 header("Location: User_Index.php");
+
+            }elseif($userRow_['userRoleID'] == 3){
+                header("Location: Surgery_Index.php");
             } else {
                 header("Location: Index.php");
             }

@@ -28,24 +28,21 @@ require '../config/dbConnection.php';
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li>
-                    <a href="Index.php" class="nav-link text-white" aria-current="page">
+                    <a href="Surgery_Index.php" class="nav-link text-white" aria-current="page">
                         <i class="sidebar-icons fa-solid fa-house"></i>Inicio
                     </a>
                 </li>
                 <li>
-                    <a href="DoctorList.php" class="nav-link active text-white">
+                    <a href="Surgery_DoctorList.php" class="nav-link active text-white">
                         <i class="sidebar-icons fa-solid fa-user-doctor"></i>Médicos
                     </a>
                 </li>
                 <li>
-                    <a href="SpecialitiesList.php" class="nav-link text-white">
+                    <a href="Surgery_SpecialitiesList.php" class="nav-link text-white">
                         <i class="sidebar-icons fa-solid fa-suitcase-medical"></i>Lista de Intervenciones
                     </a>
                 </li>
                 <hr>
-                <a href="Users.php" class="nav-link text-white">
-                    <i class="fa-solid fa-users"></i> Usuarios
-                </a>
             </ul>
             <hr>
             <a href="Logout.php" class="btn btn-primary">
@@ -60,9 +57,9 @@ require '../config/dbConnection.php';
             </div>
             <!-- PHP IMPORTS -->
             <?php include './DoctorTable.php'?>
-            <?php include './AddMedsModal.php'?>
-            <?php include './EditMedsModal.php'?>
-            <?php include './DeleteMedsModal.php'?>
+            <?php include './Surgery_AddMedsModal.php'?>
+            <?php include './Surgery_EditMedsModal.php'?>
+            <?php include './Surgery_DeleteMedsModal.php'?>
         </div>
     </div>
 

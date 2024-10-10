@@ -56,7 +56,7 @@ $Roles = $dbConnection->query($slqRoles);
                 </li>
                 <hr>
                 <a href="Users.php" class="nav-link active text-white">
-                    <i class="fa-solid fa-users"></i>Usuarios
+                    <i class="fa-solid fa-users"></i> Usuarios
                 </a>
             </ul>
             <hr>
@@ -71,21 +71,59 @@ $Roles = $dbConnection->query($slqRoles);
                 <hr>
             </div>
             <!-- PHP USERS TABLE IMPORT -->
-                <?php include './UsersTable.php'?>
+            <?php include './UsersTable.php' ?>
         </div>
 
     </div>
-            <!-- PHP IMPORTS -->
-            <?php include './AddUsersModal.php'; ?>
-            <?php include './EditUsersModal.php'; ?>
-            <?php include './DeleteUsersModal.php'; ?>
-            
+    <!-- PHP IMPORTS -->
+    <?php include './AddUsersModal.php'; ?>
+    <?php $Roles->data_seek(0); ?>
+    <?php include './EditUsersModal.php'; ?>
+    <?php include './DeleteUsersModal.php'; ?>
+
+    <script>
+        let editUsersModal = document.getElementById('editUsersModal')
+        let deleteUsersModal = document.getElementById('deleteUsersModal')
+
+        editUsersModal.addEventListener('shown.bs.modal', event => {
+            let button = event.relatedTarget
+            let id = button.getAttribute('data-bs-id')
+
+            let inputID = editUsersModal.querySelector('.modal-body #id')
+            let inputUser = editUsersModal.querySelector('.modal-body #user')
+            let inputPassword = editUsersModal.querySelector('.modal-body #password')
+            let inputRole = editUsersModal.querySelector('.modal-body #userRole')
+
+            let url = "getUsers.php"
+            let formData = new FormData()
+            formData.append('userID', id)
+
+            fetch(url, {
+                    method: "POST",
+                    body: formData
+                }).then(response => response.json())
+                .then(data => {
+                    inputID.value = data.userID
+                    inputUser.value = data.userName
+                    inputPassword.value = data.userPassword
+                    inputRole.value = data.userRoleID
+                }).catch(err => console.log(err))
 
 
+        })
+        deleteUsersModal.addEventListener('shown.bs.modal', event => {
+            let button = event.relatedTarget
+            let id = button.getAttribute('data-bs-id')
+
+            deleteUsersModal.querySelector('.modal-footer #id').value = id
+        })
+    </script>
 
     <script src="../../app//assets/js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/dbdf95c22b.js" crossorigin="anonymous"></script>
-    <script>history.replaceState(null, null, location.pathname)</script>
+    <script>
+        history.replaceState(null, null, location.pathname)
+    </script>
 </body>
 
 </html>

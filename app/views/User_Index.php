@@ -30,7 +30,7 @@ if (!isset($_SESSION['userID'])) {
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="">
-                    <a href="Index.php" class="nav-link active" aria-current="page">
+                    <a href="User_Index.php" class="nav-link active" aria-current="page">
                         <i class="sidebar-icons fa-solid fa-house"></i>Inicio
                     </a>
                 </li>
